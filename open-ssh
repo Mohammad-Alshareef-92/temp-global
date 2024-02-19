@@ -11,6 +11,11 @@ $ sudo useradd -r -U -d /var/lib/sshd/ -c "sshd privsep" -s /bin/false sshd
 $ sudo apt install libpam0g-dev libselinux1-dev   [On Debian/Ubuntu]
 $ sudo yum install pam-devel libselinux-devel     [On CentOS/RHEL]
 
+$ wget -c https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.3p1.tar.gz
+$ tar -xzf openssh-9.3p1.tar.gz
+$ cd openssh-9.3p1/
+
+
 ## Compile and Install SSH from Sources ##
 $ ./configure --with-md5-passwords --with-pam --with-selinux --with-privsep-path=/var/lib/sshd/ --sysconfdir=/etc/ssh 
 $ make
