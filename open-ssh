@@ -1,0 +1,17 @@
+$ sudo mkdir /var/lib/sshd
+$ sudo chmod -R 700 /var/lib/sshd/
+$ sudo chown -R root:sys /var/lib/sshd/
+$ sudo useradd -r -U -d /var/lib/sshd/ -c "sshd privsep" -s /bin/false sshd
+$ sudo mkdir /var/lib/sshd
+$ sudo chmod -R 700 /var/lib/sshd/
+$ sudo chown -R root:sys /var/lib/sshd/
+$ sudo useradd -r -U -d /var/lib/sshd/ -c "sshd privsep" -s /bin/false sshd
+
+
+$ sudo apt install libpam0g-dev libselinux1-dev   [On Debian/Ubuntu]
+$ sudo yum install pam-devel libselinux-devel     [On CentOS/RHEL]
+
+## Compile and Install SSH from Sources ##
+$ ./configure --with-md5-passwords --with-pam --with-selinux --with-privsep-path=/var/lib/sshd/ --sysconfdir=/etc/ssh 
+$ make
+$ sudo make install 
